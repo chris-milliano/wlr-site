@@ -1,0 +1,13 @@
+<h1>Location Button</h1>
+<div (click)="loctionBtnClick()" class="button">LOCATION</div>
+
+
+<h3 *ngIf="!userGPS.coords">Waiting on GET</h3>
+<h3 *ngIf="userGPS.coords">
+    GET {{ userGPS.timestamp }}: {{ userGPS.coords.latitude }}, {{ userGPS.coords.longitude }}
+</h3>
+
+<h3 *ngIf="!watchUserGPS.coords">Waiting on WATCH</h3>
+<h3 *ngIf="watchUserGPS.coords">
+    WATCH {{ watchUserGPS.timestamp }}: {{ watchUserGPS.coords.latitude }}, {{ watchUserGPS.coords.longitude }}
+</h3>
