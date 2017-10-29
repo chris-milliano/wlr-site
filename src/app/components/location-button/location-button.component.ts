@@ -8,7 +8,7 @@ import { Coordinates } from '../../models/coordinates';
 import { Position } from '../../models/position';
 
 @Component({
-    selector: 'app-location-button',
+    selector: 'location-button',
     templateUrl: './location-button.component.html',
     styleUrls: ['./location-button.component.scss']
 })
