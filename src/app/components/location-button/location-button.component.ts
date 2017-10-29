@@ -18,9 +18,9 @@ export class LocationButtonComponent implements OnInit, OnDestroy {
     userGPS: Position = new Position;
     gpsSubscription: Subscription;
 
-    // WATCH
-    watchUserGPS: Position = new Position;
-    watchGpsSubscription: Subscription;
+    // // WATCH
+    // watchUserGPS: Position = new Position;
+    // watchGpsSubscription: Subscription;
 
 
 
@@ -38,23 +38,23 @@ export class LocationButtonComponent implements OnInit, OnDestroy {
             console.log("GPS GET: ", this.userGPS);
         });
 
-
-        // WATCH
-        this.watchGpsSubscription = this.gpsService.watchLocation().subscribe( (watchUserGPS) => {
-            this.watchUserGPS = watchUserGPS;
-            console.log("GPS WATCH: ", this.watchUserGPS);
-        });
+        //
+        // // WATCH
+        // this.watchGpsSubscription = this.gpsService.watchLocation().subscribe( (watchUserGPS) => {
+        //     this.watchUserGPS = watchUserGPS;
+        //     console.log("GPS WATCH: ", this.watchUserGPS);
+        // });
     }
 
     loctionBtnClick() {
         console.log("locationBtnClicked()");
         console.log(this.userGPS);
-        console.log(this.watchUserGPS);
+        //console.log(this.watchUserGPS);
     }
 
     ngOnDestroy() {
         this.gpsSubscription.unsubscribe();
-        this.watchGpsSubscription.unsubscribe();
+        //this.watchGpsSubscription.unsubscribe();
     }
 
 }

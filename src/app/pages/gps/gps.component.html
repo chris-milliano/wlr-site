@@ -1,3 +1,9 @@
-<p>
-  gps works!
-</p>
+<h3 *ngIf="!userGPS.coords">Waiting on GPS</h3>
+<div *ngIf="userGPS.coords">
+
+
+    <h3>GPS {{ userGPS.timestamp }}s  -->  lat= {{ userGPS.coords.latitude }},  long= {{ userGPS.coords.longitude }}</h3>
+
+
+    <agm-map [latitude]="userGPS.coords.latitude" [longitude]="userGPS.coords.longitude "></agm-map>
+</div>
