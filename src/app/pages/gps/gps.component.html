@@ -5,20 +5,33 @@
     <h3>GPS {{ userGPS.timestamp }}s  -->  lat= {{ userGPS.coords.latitude }},  long= {{ userGPS.coords.longitude }}</h3>
 
 
-    <agm-map [latitude]="userGPS.coords.latitude"
+    <agm-map
+        [latitude]="userGPS.coords.latitude"
         [longitude]="userGPS.coords.longitude"
         [zoom]="15">
-        <agm-marker [latitude]="38.60834"
-            [longitude]="-90.24080"
-            [label]="'Starbucks'">
+
+        <!-- Location Markers -->
+        <agm-marker *ngFor="let marker of markers; let i = index"
+            [latitude]="marker.lat"
+            [longitude]="marker.lng"
+            [title]="marker.title"
+            [label]="i">
         </agm-marker>
-        <agm-marker [latitude]="userGPS.coords.latitude"
-            [longitude]="userGPS.coords.longitude">
-        </agm-marker>
-        <agm-circle [latitude]="38.60834"
-            [longitude]="-90.24080"
-            [radius]="20"
+        <agm-circle *ngFor="let marker of markers; let i = index"
+            [latitude]="marker.lat"
+            [longitude]="marker.lng"
+            [radius]="marker.radius"
             [fillColor]="'#00f'">
         </agm-circle>
+
+
+        <!-- User Marker -->
+        <agm-marker
+            [latitude]="userGPS.coords.latitude"
+            [longitude]="userGPS.coords.longitude">
+        </agm-marker>
+
     </agm-map>
+
+    <h3 *ngFor="let marker of visitedMarkers">VISITED: {{ marker.title }}</h3>
 </div>
