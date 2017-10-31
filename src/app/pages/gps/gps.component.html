@@ -11,13 +11,12 @@
         [zoom]="15">
 
         <!-- Location Markers -->
-        <agm-marker *ngFor="let marker of markers; let i = index"
+        <agm-marker *ngFor="let marker of markers"
             [latitude]="marker.lat"
             [longitude]="marker.lng"
-            [title]="marker.title"
-            [label]="i">
+            [label]="marker.label">
         </agm-marker>
-        <agm-circle *ngFor="let marker of markers; let i = index"
+        <agm-circle *ngFor="let marker of markers"
             [latitude]="marker.lat"
             [longitude]="marker.lng"
             [radius]="marker.radius"
@@ -33,5 +32,9 @@
 
     </agm-map>
 
-    <h3 *ngFor="let marker of visitedMarkers">VISITED: {{ marker.title }}</h3>
+    <h3 *ngFor="let marker of visitedMarkers">VISITED: {{ marker.title }}, {{ marker.visited }}</h3>
+
+
+    <h3>LOCAL STORAGE:</h3>
+    <h4 *ngFor="let marker of markerInLocalStorage">{{ marker.title }}</h4>
 </div>

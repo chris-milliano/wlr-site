@@ -20,4 +20,6 @@ export class HomeComponent implements OnInit {
     goTo (path: string) {
         this.router.navigateByUrl(path);
     }
+
+    // TODO: Check user for gps and local storage capabiliies
 }
